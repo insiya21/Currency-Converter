@@ -1,5 +1,3 @@
-// const BASE_URL =
-//   "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
 const BASE_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1";
 
 const updateExchangeRate = async () => {
@@ -9,9 +7,7 @@ const updateExchangeRate = async () => {
     amtVal = 1;
     amount.value = "1";
   }
-
   const url = `${BASE_URL}/currencies/${fromCurr.value.toLowerCase()}.json`;
-
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -51,22 +47,6 @@ for (let select of dropdowns) {
     updateFlag(evt.target);
   });
 }
-
-// const updateExchangeRate = async () => {
-//   let amount = document.querySelector(".amount input");
-//   let amtVal = amount.value;
-//   if (amtVal === "" || amtVal < 1) {
-//     amtVal = 1;
-//     amount.value = "1";
-//   }
-//   const URL = `${BASE_URL}/currencies/${fromCurr.value.toLowerCase()}.json`;
-//   let response = await fetch(URL);
-//   let data = await response.json();
-//   let rate = data[toCurr.value.toLowerCase()];
-
-//   let finalAmount = amtVal * rate;
-//   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
-// };
 
 const updateFlag = (element) => {
   let currCode = element.value;
